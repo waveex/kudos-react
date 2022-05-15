@@ -1,0 +1,46 @@
+[
+  {
+    "Name": "Anna Korolczuk",
+    "Img": "../assets/avatars/AnnImg.svg",
+    "Id": 1,
+    "Date": "11.05.2022",
+    "Description": "Wielkie dzięki @Barbara Klimowicz za współpracę przy ostatnim projekcie. Dzięki twojej pomocy poradziłam sobie z badaniami i analizą! Mam nadzieję że jeszcze wiele takich projektów przed nami.",
+    "Kudos": 1
+  },
+  {
+    "Name": "Ester Mole",
+    "Img": "../assets/avatars/EsterImg.svg",
+
+    "Id": 2,
+    "Date": "09.05.2022",
+    "Description": "loremOccaecat irure magna laborum sit.Veniam nostrud laboris id aliqua esse laborum ut dolor sint elit enim ipsum.",
+    "Kudos": 2
+  },
+  {
+    "Name": "Hanna Śmietana",
+    "Img": "../assets/avatars/HannaImg.svg",
+
+    "Id": 3,
+    "Date": "05.05.2022",
+    "Description": "Voluptate officia dolor in veniam minim sint commodo aliqua.Laborum in laboris tempor adipisicing magna ad aute et sit reprehenderit nisi in.",
+    "Kudos": 5
+  },
+  {
+    "Name": "Ola Gryc",
+    "Img": "../assets/avatars/OlaImg.svg",
+
+    "Id": 4,
+    "Date": "05.05.2022",
+    "Description": "Voluptate officia dolor in veniam minim sint commodo aliqua.Laborum in laboris tempor adipisicing magna ad aute et sit reprehenderit nisi in.",
+    "Kudos": 4
+  },
+  {
+    "Name": "Wicky  Blake",
+    "Img": "../assets/avatars/WickyImg.svg",
+
+    "Id": 5,
+    "Date": "05.05.2022",
+    "Description": "Voluptate officia dolor in veniam minim sint commodo aliqua.Laborum in laboris tempor adipisicing magna ad aute et sit reprehenderit nisi in.",
+    "Kudos": 4
+  }
+]
