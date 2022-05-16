@@ -6,10 +6,9 @@ export const Input = styled.input`
   font-size: ${({ theme }) => theme.s};
   color: ${({ theme }) => theme.darkGray};
   opacity: 50%;
-max-width: 334px;
-width: 100%;
+  max-width: 334px;
+  width: 100%;
   height: 20px;
   border: none;
   flex: 1;
 `;
-

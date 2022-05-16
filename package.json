@@ -3,17 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apideck/better-ajv-errors": "^0.3.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
-    "eslint-plugin-react": "^7.29.4",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "path-browserify": "^1.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-native-crypto": "^2.1.0",
+    "react-native-level-fs": "^3.0.0",
+    "react-native-randombytes": "^3.0.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "4.0.3",
+    "readable-stream": "^3.6.0",
     "redux": "^4.2.0",
+    "request": "^2.79.0",
+    "rn-nodeify": "^10.3.0",
     "styled-components": "^5.3.5"
   },
   "scripts": {
@@ -21,22 +29,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   },
   "browserslist": {
     "production": [
@@ -51,6 +43,29 @@
     ]
   },
   "devDependencies": {
-    "webpack": "^5.72.1"
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "0.0.1",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
+  },
+  "browser": {
+    "fs": "false",
+    "path": false,
+    "os": false,
+    "crypto": "react-native-crypto",
+    "https": "https-browserify"
+  },
+  "react-native": {
+    "fs": "react-native-level-fs",
+    "path": false,
+    "os": false,
+    "crypto": "react-native-crypto",
+    "https": "https-browserify"
   }
 }

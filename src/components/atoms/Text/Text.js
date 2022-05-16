@@ -1,5 +1,4 @@
 import styled, {css} from 'styled-components';
-import { theme } from '../../../assets/styles/theme';
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.black};

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { theme } from '../../../assets/styles/theme';
 
 export const Icon = styled.img`
   background-color: ${({ theme }) => theme.borderGray};
