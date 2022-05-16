@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper } from './FormHeader';
+import { Wrapper } from './FormHeader.styles';
 import icon from '../../../assets/img/icons/agreement-purple.svg'
 import { Heading } from '../../atoms/Heading/Heading';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { Icon } from '../../atoms/Icon/Icon';
 import close from '../../../assets/img/icons/close.svg'
 
 
-const FormHeaderStyles = () => {
+const FormHeader = () => {
     return (
        <Wrapper>
            <Icon src={icon} />
@@ -19,4 +19,4 @@ const FormHeaderStyles = () => {
     );
 }
 
-export default FormHeaderStyles;
+export default FormHeader;
