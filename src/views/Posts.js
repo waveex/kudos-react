@@ -9,8 +9,8 @@ const Posts = ({ posts }) => {
   return (
     <Wrapper>
       <AddPost />
-      {posts.map(({ name, date, id, avatar, description }) => (
-        <Post key={id} avatar={avatar} name={name} date={date} description={description} id={id} />
+      {posts.map(({ name, date, id, avatar, description, hearts }) => (
+        <Post key={id} avatar={avatar} name={name} date={date} description={description} id={id} hearts={hearts}/>
       ))}
     </Wrapper>
   );
@@ -26,7 +26,9 @@ Posts.propTypes = {
   ),
 };
 Posts.defulatProps = {
-  posts: [],
+  posts: {},
 };
-const mapStatetoProps = ({ posts }) => ({ posts });
+const mapStatetoProps = state => ({
+  posts: state.postState,
+})
 export default connect(mapStatetoProps)(Posts);

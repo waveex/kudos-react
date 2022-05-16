@@ -4,24 +4,36 @@ import { OptionsWrapper, SocialWrapper, Wrapper } from './Options.styles';
 import heart from '../../../assets/img/icons/heart-solid.svg'
 import comment from '../../../assets/img/icons/message-solid.svg'
 import dots from '../../../assets/img/icons/ellipsis-vertical-solid.svg'
+import { connect } from 'react-redux';
+import { addHeart } from '../../../actions/addAction';
+import PropTypes from 'prop-types';
+import icon from '../../../assets/img/kudos/RealtimeCollaboration.svg';
+import { Text } from '../../atoms/Text/Text';
 
+const Options = ({hearts , id , addHeart}) => {
 
-const Options = () => {
+    hearts = 0
     return (
-        <Wrapper>
-            <OptionsWrapper>
-                <Icon src={icon}/>
-                <text link>Marketing</text>
-            </OptionsWrapper>
-            <SocialWrapper>
-                <Icon small src={heart}/>
-                <Text counter>4</Text>
-                <Icon small src={comment}/>
-                <Text counter>0</Text>
-            </SocialWrapper>
-            <Icon small src={dots}/>
-        </Wrapper>
+      <Wrapper>
+        <OptionsWrapper>
+          <Icon src={icon} />
+          <Text link >Marketing</Text>
+        </OptionsWrapper>
+        <SocialWrapper>
+          <Icon small src={heart} onClick={() => addHeart(id)} />
+          <Text counter>{hearts}</Text>
+          <Icon small src={comment} />
+          <Text counter>0</Text>
+        </SocialWrapper>
+        <Icon small src={dots} />
+      </Wrapper>
     );
 }
+Options.propTypes = {
+    id: PropTypes.number.isRequired,
+    hearts: PropTypes.number,
+    addHeart: PropTypes.func.isRequired,
+  };
 
-export default Options;
+
+export default connect(null, { addHeart })(Options);

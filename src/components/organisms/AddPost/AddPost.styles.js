@@ -10,4 +10,8 @@ export const Wrapper = styled.button`
   background-color: ${({ theme }) => theme.white};
   border: ${({ theme }) => theme.border} ${({ theme }) => theme.grayBorder};
   border-radius: ${({ theme }) => theme.rounded};
+
+  &:hover {
+    border: 1px solid ${({ theme}) => theme.gold}
+  }
 `;

@@ -9,6 +9,9 @@ export const Wrapper = styled.div`
   border: ${({ theme }) => theme.border} ${({ theme }) => theme.grayBorder};
   border-radius: ${({ theme }) => theme.rounded};
   padding-left: 29px;
+  &:hover{
+    border : ${({theme}) => theme.border} ${({theme}) => theme.gold}
+  }
 `;
 
 export const DescrptionWrapper = styled.div`

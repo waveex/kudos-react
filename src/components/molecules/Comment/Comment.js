@@ -10,7 +10,7 @@ import attachment from '../../../assets/img/icons/attachment-icon.svg'
 export const Comment = ({avatar}) => {
     return (
        <Wrapper>
-           <Avatar src{...avatar}/>
+           <Avatar src={avatar}/>
            <IconsWrapper>
                <Icon comment src={gif}/>
                <Icon comment src={emotikon}/>
@@ -20,8 +20,5 @@ export const Comment = ({avatar}) => {
     );
 }
 
-Comment.propTypes = {
-    avatar: propTypes.string
-}
 
 
