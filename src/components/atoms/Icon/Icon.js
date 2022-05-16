@@ -8,6 +8,17 @@ export const Icon = styled.img`
   cursor: pointer;
   border-radius: 6px;
   border: none;
+  ${props =>
+    props.form &&
+    css`
+      padding: 6px;
+    `};
+  ${props =>
+    props.kudos &&
+    css`
+      width: 75px;
+      height: 75px;
+    `};
   ${(props) =>
     props.big &&
     css`

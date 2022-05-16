@@ -9,20 +9,16 @@ import icon from '../../../assets/img/icons/agreement.svg'
 
 const Header = ({avatar, name, date}) => {
     return (
-        <div>
-            <Wrapper>
-                <Avatar src={avatar} />
-                <InfoWrapper>
-                    <Heading>
-                        {name}
-                    </Heading>
-                        <Date>
-                            {date}
-                        </Date>
-                </InfoWrapper>
-                <Icon src={icon}/>
-            </Wrapper>
-        </div>
+      <div>
+        <Wrapper>
+          <Avatar src={avatar} />
+          <InfoWrapper>
+            <Heading>{name}</Heading>
+            <Date>{date}</Date>
+          </InfoWrapper>
+          <Icon src={icon} />
+        </Wrapper>
+      </div>
     );
 }
 

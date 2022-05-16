@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Input = styled.input`
   background-color: transparent;
@@ -11,4 +11,12 @@ export const Input = styled.input`
   height: 20px;
   border: none;
   flex: 1;
+  ${props =>
+    props.form &&
+    css`
+      width: 100%;
+      font-weight: ${({ theme }) => theme.regular};
+      font-size: ${({ theme }) => theme.small};
+      opacity: 1;
+    `};
 `;

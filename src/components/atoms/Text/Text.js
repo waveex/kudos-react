@@ -5,13 +5,14 @@ export const Text = styled.p`
   font-weight: ${({ theme }) => theme.normal};
   font-size: ${({ theme }) => theme.s};
   margin: 38px 0 24px 0;
-  ${props =>
+  ${(props) =>
     props.big &&
     css`
       font-size: ${({ theme }) => theme.m};
       margin: 0;
     `};
-  ${props =>
+
+  ${(props) =>
     props.link &&
     css`
       color: ${({ theme }) => theme.gold};
@@ -20,7 +21,8 @@ export const Text = styled.p`
       margin: 0;
       margin-left: 8px;
     `};
-  ${props =>
+
+  ${(props) =>
     props.counter &&
     css`
       color: ${({ theme }) => theme.gold};
@@ -28,7 +30,8 @@ export const Text = styled.p`
       font-weight: ${({ theme }) => theme.normal};
       margin: 0 8px 0 5.45px;
     `};
-  ${props =>
+
+  ${(props) =>
     props.addPost &&
     css`
       color: ${({ theme }) => theme.gray};
@@ -36,6 +39,28 @@ export const Text = styled.p`
       margin: 0 0 0 8px;
       text-align: left;
       width: 100%;
+    `};
+
+  ${(props) =>
+    props.select &&
+    css`
+      color: ${({ theme }) => theme.darkgray};
+      margin: 0 0 0 8px;
+    `};
+
+  ${(props) =>
+    props.kudos &&
+    css`
+      color: ${({ theme }) => theme.darkgray};
+      font-size: ${({ theme }) => theme.small};
+      margin: 0;
+    `};
+
+  ${(props) =>
+    props.form &&
+    css`
+      color: ${({ theme }) => theme.darkgray};
+      margin: 22px 0 8px 0;
     `};
 `;
 

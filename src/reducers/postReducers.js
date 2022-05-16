@@ -38,7 +38,6 @@ export default (state = initialState, action) => {
       return [...state];
     }
 
-    state.map(post => (post.id === action.id ? post.heart + 1 : null));
     default:
       return state;
   }
