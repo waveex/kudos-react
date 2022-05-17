@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import { Icon } from '../../atoms/Icon/Icon';
 import { OptionsWrapper, SocialWrapper, Wrapper } from './Options.styles';
 import heart from '../../../assets/img/icons/heart-solid.svg'
@@ -10,8 +10,11 @@ import PropTypes from 'prop-types';
 import icon from '../../../assets/img/kudos/RealtimeCollaboration.svg';
 import { Text } from '../../atoms/Text/Text';
 
-const Options = ({hearts , postId , addHeart}) => {
-
+const Options = ({ postId , addHeart}) => {
+    const [likes, setLikes] = useState(0);
+    const incrementLikes = () => {
+      setLikes(likes + 1)
+    }
     return (
       <Wrapper>
         <OptionsWrapper>
@@ -19,8 +22,8 @@ const Options = ({hearts , postId , addHeart}) => {
           <Text link >Marketing</Text>
         </OptionsWrapper>
         <SocialWrapper>
-          <Icon small src={heart} onClick={() => addHeart(postId)} />
-          <Text counter>{hearts}</Text>
+          <Icon small src={heart} onClick={incrementLikes} />
+          <Text counter>{likes}</Text>
           <Icon small src={comment} />
           <Text counter>0</Text>
         </SocialWrapper>
@@ -29,7 +32,7 @@ const Options = ({hearts , postId , addHeart}) => {
     );
 }
 Options.propTypes = {
-    postId: PropTypes.number,
+    id: PropTypes.number,
     hearts: PropTypes.number,
     addHeart: PropTypes.func.isRequired,
   };

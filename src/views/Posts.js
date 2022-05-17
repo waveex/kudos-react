@@ -22,7 +22,7 @@ const Posts = ({ posts, persons }) => {
       <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
         <Forms />
       </Modal>
-      {posts.map(({ postId, date, authorId, avatar, description, hearts }) => (
+      {posts.map(({ postId, date, authorId, avatar, description }) => (
         <Post
           key={postId}
           avatar={persons[authorId].img}
@@ -30,7 +30,7 @@ const Posts = ({ posts, persons }) => {
           date={date}
           description={description}
           postId={postId}
-          hearts={hearts}
+
           persons={persons}
         />
       ))}
