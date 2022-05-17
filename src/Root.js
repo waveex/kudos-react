@@ -16,6 +16,7 @@ function Root() {
           <Wrapper>
           <Routes>
             <Route exact path="/" element={ <Posts />} />
+
             </Routes>
           </Wrapper>
         </ThemeProvider>

@@ -5,10 +5,11 @@ import { Text } from '../../atoms/Text/Text';
 import { DescriptionWrapper, Wrapper } from './AddKudoForm.styles';
 import PropTypes from 'prop-types';
 
+
 const AddKudoForm = ({img, title, description}) => {
     return (
         <Wrapper>
-            <Icon kudos src={`${img}`}>
+            <Icon kudos src={`${img}`} />
                 <DescriptionWrapper>
                     <Text kudos>
                     {title}
@@ -17,7 +18,6 @@ const AddKudoForm = ({img, title, description}) => {
                     {description}
                     </Heading>
                 </DescriptionWrapper>
-            </Icon>
         </Wrapper>
         );
 }

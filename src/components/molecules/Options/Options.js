@@ -10,9 +10,8 @@ import PropTypes from 'prop-types';
 import icon from '../../../assets/img/kudos/RealtimeCollaboration.svg';
 import { Text } from '../../atoms/Text/Text';
 
-const Options = ({hearts , id , addHeart}) => {
+const Options = ({hearts , postId , addHeart}) => {
 
-    hearts = 0
     return (
       <Wrapper>
         <OptionsWrapper>
@@ -20,7 +19,7 @@ const Options = ({hearts , id , addHeart}) => {
           <Text link >Marketing</Text>
         </OptionsWrapper>
         <SocialWrapper>
-          <Icon small src={heart} onClick={() => addHeart(id)} />
+          <Icon small src={heart} onClick={() => addHeart(postId)} />
           <Text counter>{hearts}</Text>
           <Icon small src={comment} />
           <Text counter>0</Text>
@@ -30,7 +29,7 @@ const Options = ({hearts , id , addHeart}) => {
     );
 }
 Options.propTypes = {
-    id: PropTypes.number.isRequired,
+    postId: PropTypes.number,
     hearts: PropTypes.number,
     addHeart: PropTypes.func.isRequired,
   };

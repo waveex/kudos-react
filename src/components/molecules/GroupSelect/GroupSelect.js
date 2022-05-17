@@ -1,7 +1,10 @@
 import React from 'react';
 import Button from '../../atoms/Button/Button';
+import { Icon } from '../../atoms/Icon/Icon';
 import Select from '../../atoms/Select/Select';
-import { Wrapper } from './GroupSelect.styles';
+import { OptionWrapper, Wrapper } from './GroupSelect.styles';
+import iconCity from '../../../assets/img/icons/city-solid.svg'
+import { Text } from '../../atoms/Text/Text';
 
 const GroupSelect = () => {
     const options = [
@@ -18,8 +21,8 @@ const GroupSelect = () => {
           value: 'Marketing',
           label: (
             <OptionWrapper>
-              <Icon src={iconDepartment} />
-              <Text select>Marketing</Text>
+              <Icon src={iconCity} />
+              <Text select>Bydgoszcz</Text>
             </OptionWrapper>
           ),
         },
@@ -36,8 +39,8 @@ const GroupSelect = () => {
           value: 'HR',
           label: (
             <OptionWrapper>
-              <Icon src={iconDepartment} />
-              <Text select>HR</Text>
+              <Icon src={iconCity} />
+              <Text select>Poznań</Text>
             </OptionWrapper>
           ),
         },

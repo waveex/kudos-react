@@ -5,7 +5,7 @@ display: flex;
 height: 80px;
 width: 100%;
 justify-content: space-between;
-${lightborder};
+border: 1px solid ${({theme}) => theme.gold};
 padding-left: 29px;
 align-items: center;
 margin-top: 16px;

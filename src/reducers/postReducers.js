@@ -2,17 +2,8 @@ import { ADD_HEART } from '../actions/types';
 
 const initialState = [
   {
-    id: 1,
-    name: 'Adam Korolczuk',
-    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-    date: '3 dni temu',
-    description:
-      'Wielkie dzięki @Barbara Klimowicz za współpracę przy ostatnim projekcie. Dzięki twojej pomocy poradziłam sobie z badaniami i analizą! Mam nadzieję że jeszcze wiele takich projektów przed nami.',
-    heart: 0,
-  },
-  {
-    id: 2,
-    name: 'Anna Korolczuk',
+    postId: 1,
+    authorId: 5,
     avatar: 'https://randomuser.me/api/portraits/men/2.jpg',
     date: '3 dni temu',
     description:
@@ -20,8 +11,17 @@ const initialState = [
     heart: 0,
   },
   {
-    id: 3,
-    name: 'Anna Korolczuk',
+    postId: 2,
+    authorId: 4,
+    avatar: 'https://randomuser.me/api/portraits/men/2.jpg',
+    date: '3 dni temu',
+    description:
+      'Wielkie dzięki @Barbara Klimowicz za współpracę przy ostatnim projekcie. Dzięki twojej pomocy poradziłam sobie z badaniami i analizą! Mam nadzieję że jeszcze wiele takich projektów przed nami.',
+    heart: 0,
+  },
+  {
+    postId: 3,
+    authorId: 1,
     avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
     date: '3 dni temu',
     description:
