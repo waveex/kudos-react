@@ -7,14 +7,21 @@ import { connect } from "react-redux";
 import Modal from "../components/organisms/Modal/Modal";
 import Forms from "./Forms";
 import useModal from "../hooks/useModal";
+
+
 const Posts = ({ posts, persons }) => {
   const { isOpen, handleOpenModal, handleCloseModal } = useModal();
+  const activePerson = persons.find((person) => person.isActive);
   return (
     <Wrapper>
-      <AddPost onClick={handleOpenModal} persons={persons} />
-
+      <AddPost
+        onClick={handleOpenModal}
+        persons={persons}
+        activePerson={activePerson}
+      />
+      <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
         <Forms />
-
+      </Modal>
       {posts.map(({ postId, date, authorId, avatar, description, hearts }) => (
         <Post
           key={postId}

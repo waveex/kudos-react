@@ -4,7 +4,7 @@ import Form from '../components/organisms/Form/Form';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const Forms = ({kudoses, persons}) => {
+const Forms = ({kudoses, persons }) => {
     return (
        <NotesWrapper>
            <Form kudoses={kudoses} persons={persons} />

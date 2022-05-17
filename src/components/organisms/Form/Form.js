@@ -7,7 +7,7 @@ import PersonSelect from "../../molecules/PersonSelect/PersonSelect";
 import PostForm from "../../molecules/PostForm/PostForm";
 import PropTypes from "prop-types";
 
-const Form = ({ kudoses, persons }) => {
+const Form = ({ kudoses, persons}) => {
   return (
     <>
       <FormHeader />

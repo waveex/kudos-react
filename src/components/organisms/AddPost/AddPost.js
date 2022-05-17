@@ -5,8 +5,8 @@ import { Text } from "../../atoms/Text/Text";
 import { Wrapper } from "./AddPost.styles";
 import icon from "../../../assets/img/icons/agreement.svg";
 import PropTypes from 'prop-types';
-const AddPost = ({props, persons}) => {
-  const activePerson = persons.find((person) => person.isActive);
+const AddPost = ({ activePerson, ...props}) => {
+
   return (
     <Wrapper {...props}>
       <Avatar src={activePerson.img} />
