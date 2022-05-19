@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const Wrapper = styled.button`
+export const StyledWrapper = styled.button`
   cursor: pointer;
   display: flex;
   padding: 16px;

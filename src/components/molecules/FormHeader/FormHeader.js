@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "./FormHeader.styles";
+import { StyledWrapper } from "./FormHeader.styles";
 import icon from "../../../assets/img/icons/agreement-purple.svg";
 import { Heading } from "../../atoms/Heading/Heading";
 import { Link } from "react-router-dom";
@@ -11,13 +11,13 @@ import Button from "../../atoms/Button/Button";
 const FormHeader = () => {
   const { handleCloseModal } = useModal();
   return (
-    <Wrapper>
+    <StyledWrapper>
       <Icon src={icon} />
       <Heading form>Utwórz kudos</Heading>
         <Button onClick={handleCloseModal}>
         <Icon form src={close} />
         </Button>
-    </Wrapper>
+    </StyledWrapper>
   );
 };
 

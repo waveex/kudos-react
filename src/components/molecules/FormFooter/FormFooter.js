@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text } from '../../atoms/Text/Text';
-import { Wrapper } from './FormFooter.styles';
+import { StyledWrapper } from './FormFooter.styles';
 
 const FormFooter = () => {
     return (
-        <Wrapper>
+        <StyledWrapper>
             <Text form>Wybierz grupę</Text>
-        </Wrapper>
+        </StyledWrapper>
     );
 }
 

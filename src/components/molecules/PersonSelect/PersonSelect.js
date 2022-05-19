@@ -15,8 +15,8 @@ const PersonSelect = ({ persons }) => (
 PersonSelect.propTypes = {
   persons: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
+      name: PropTypes.string,
+      id: PropTypes.number,
     }),
   ),
 };

@@ -1,11 +1,11 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './assets/styles/GlobalStyle';
-import { Wrapper } from './Root.styles';
+import { StyledWrapper } from './Root.styles';
 import { theme } from './assets/styles/theme';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import store from './store';
-import Posts from './views/Posts';
+import HomeView from './views/HomeView';
 
 function Root() {
   return (
@@ -13,12 +13,11 @@ function Root() {
       <Router>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <Wrapper>
+          <StyledWrapper>
           <Routes>
-            <Route exact path="/" element={ <Posts />} />
-
+            <Route exact path="/" element={ <HomeView />} />
             </Routes>
-          </Wrapper>
+          </StyledWrapper>
         </ThemeProvider>
       </Router>
     </Provider>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Icon } from '../../atoms/Icon/Icon';
-import {  EmoticonsWrapper, InputWrapper, Wrapper } from './PostForm.styles';
+import {  EmoticonsWrapper, InputWrapper, StyledWrapper } from './PostForm.styles';
 import gif from '../../../assets/img/icons/gif.svg'
 import emotikon from '../../../assets/img/icons/emotikon.svg'
 import attachment from '../../../assets/img/icons/attachment-icon.svg'
 
 const PostForm = () => {
     return (
-            <Wrapper>
+            <StyledWrapper>
                 <InputWrapper>
                 <EmoticonsWrapper>
                     <Icon comment src={gif} />
@@ -15,7 +15,7 @@ const PostForm = () => {
                     <Icon comment src={attachment} />
                     </EmoticonsWrapper>
                 </InputWrapper>
-            </Wrapper>
+            </StyledWrapper>
     );
 }
 

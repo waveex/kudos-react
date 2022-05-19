@@ -6,7 +6,7 @@ const { default: postReducers } = require("./postReducers");
 
 export default combineReducers({
   postState: postReducers,
-  kudosState: kudosReducers,
+  kudosesState: kudosReducers,
   personsState: personsReducers
 
 }

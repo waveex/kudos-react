@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const Wrapper = styled.div`
+export const StyledWrapper = styled.div`
   max-width: 532px;
   width: 100%;
   height: 193px;

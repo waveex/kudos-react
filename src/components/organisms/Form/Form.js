@@ -33,15 +33,15 @@ Form.propTypes = {
   kudoses: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      description: PropTypes.string.isRequired,
+      description: PropTypes.string,
     })
   ),
   persons: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      img: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-      isActive: PropTypes.bool.isRequired,
+      img: PropTypes.string,
+      id: PropTypes.number,
+      isActive: PropTypes.bool,
     })
   ),
 };

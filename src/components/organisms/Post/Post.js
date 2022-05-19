@@ -2,39 +2,45 @@ import React from "react";
 import { Text } from "../../atoms/Text/Text";
 import Header from "../../molecules/Header/Header";
 import KudosBadge from "../../molecules/KudosBadge/KudosBadge";
-import { Wrapper } from "./Post.styles";
+import { StyledWrapper } from "./Post.styles";
 import PropTypes from "prop-types";
 import { Comment } from "../../molecules/Comment/Comment";
 import Options from "../../molecules/Options/Options";
-const Post = ({ name, date, avatar, desciption, hearts, postId, persons }) => {
+const Post = ({ posts: {avatar, date, kudos, likes, postDescription, authorId},  persons, kudoses }) => {
+  const author = persons.find((person) => person.id === authorId)
   const activePerson = persons.find((person) => person.isActive);
+  const kudosReciver = persons.find((person) => person.id === kudos.personId)
+  const kudosReciverName = kudosReciver.name
+  const kudosBadgeRecived = kudoses.find((kudo) => kudo.id === kudos.kudosId)
   return (
-    <Wrapper>
-      <Header name={name} date={date} avatar={avatar} />
-      <Text>{desciption}</Text>
-      <KudosBadge />
-      <Options hearts={hearts} postId={postId} />
+    <StyledWrapper>
+      <Header name={author.name} date={date} avatar={avatar} />
+      <Text>{postDescription}</Text>
+      <KudosBadge kudosBadgeRecived={kudosBadgeRecived} kudosReciverName={kudosReciverName} />
+      <Options  likes={likes} />
       <Comment avatar={activePerson.img} />
-    </Wrapper>
+    </StyledWrapper>
   );
 };
 
 Post.propTypes = {
-  name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  date: PropTypes.string,
   desciption: PropTypes.string,
   hearts: PropTypes.number,
   postId: PropTypes.number,
+  kudos: PropTypes.objectOf(PropTypes.number),
   persons: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      img: PropTypes.string.isRequired,
-      isActive: PropTypes.bool.isRequired,
+      id: PropTypes.number,
+      name: PropTypes.string,
+      img: PropTypes.string,
+      isActive: PropTypes.bool,
     })
   ),
 };
 Post.defaultProps = {
   persons: [],
+  kudoses: []
 };
 export default Post;

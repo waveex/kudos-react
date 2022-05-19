@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../../atoms/Button/Button';
 import { Icon } from '../../atoms/Icon/Icon';
 import Select from '../../atoms/Select/Select';
-import { OptionWrapper, Wrapper } from './GroupSelect.styles';
+import { OptionWrapper, StyledWrapper } from './GroupSelect.styles';
 import iconCity from '../../../assets/img/icons/city-solid.svg'
 import { Text } from '../../atoms/Text/Text';
 
@@ -46,10 +46,10 @@ const GroupSelect = () => {
         },
       ];
     return (
-     <Wrapper>
+     <StyledWrapper>
         <Select options={options} />
         <Button>Opublikuj</Button>
-     </Wrapper>
+     </StyledWrapper>
     );
 }
 

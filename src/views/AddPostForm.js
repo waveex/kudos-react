@@ -1,32 +1,32 @@
 import React from 'react';
-import { NotesWrapper } from './Forms.styles';
+import { NotesWrapper } from './AddPostForm.styles';
 import Form from '../components/organisms/Form/Form';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const Forms = ({kudoses, persons }) => {
+const AddPostForm = ({kudoses, persons }) => {
     return (
        <NotesWrapper>
            <Form kudoses={kudoses} persons={persons} />
        </NotesWrapper>
     );
 }
-Forms.propTypes = {
+AddPostForm.propTypes = {
     kudoses: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        description: PropTypes.string,
       }),
     ),
     persons: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        isActive: PropTypes.bool.isRequired,
+        name: PropTypes.string,
+        id: PropTypes.number,
+        isActive: PropTypes.bool,
       }),
     ),
   };
-  Forms.defaultProps = {
+  AddPostForm.defaultProps = {
     kudoses: [],
     persons: [],
   };
@@ -35,4 +35,4 @@ Forms.propTypes = {
     kudoses: state.kudosState,
     persons: state.personsState,
   });
-export default connect(mapStateToProps)(Forms);
+export default connect(mapStateToProps)(AddPostForm);

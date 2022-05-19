@@ -1,20 +1,42 @@
 import React from 'react';
 import { Icon } from '../../atoms/Icon/Icon';
-import { DescrptionWrapper, Wrapper } from './KudosBadge.styles';
-import icon from '../../../assets/img/kudos/RealtimeCollaboration.svg';
+import { DescrptionWrapper, StyledWrapper } from './KudosBadge.styles';
 import { Text } from '../../atoms/Text/Text';
 import { Heading } from '../../atoms/Heading/Heading';
-
-const KudosBadge = () => {
+import PropTypes from "prop-types";
+const KudosBadge = ({kudosBadgeRecived:{img, title}, kudosReciverName}) => {
+  console.log(process.env.PUBLIC_URL + img);
   return (
-    <Wrapper>
-      <Icon big src={icon} />
+    <StyledWrapper>
+      <Icon big src={process.env.PUBLIC_URL + img} />
       <DescrptionWrapper>
-        <Text>Świetny współpracownik</Text>
-        <Heading>Barbara Klimowicz</Heading>
+        <Text>{title}</Text>
+        <Heading>{kudosReciverName}</Heading>
       </DescrptionWrapper>
-    </Wrapper>
+    </StyledWrapper>
   );
 };
+KudosBadge.propTypes = {
+  kudos: PropTypes.number,
+  persons: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      img: PropTypes.string,
+      isActive: PropTypes.bool,
+    }),
+  ),
+  kudoses: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      img: PropTypes.string,
+    }),
+  ),
+};
 
+KudosBadge.defaultProps = {
+  persons: {},
+  kudoses: {},
+};
 export default KudosBadge;
