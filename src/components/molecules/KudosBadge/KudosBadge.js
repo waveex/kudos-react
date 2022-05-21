@@ -4,11 +4,11 @@ import { DescrptionWrapper, StyledWrapper } from './KudosBadge.styles';
 import { Text } from '../../atoms/Text/Text';
 import { Heading } from '../../atoms/Heading/Heading';
 import PropTypes from "prop-types";
+
 const KudosBadge = ({kudosBadgeRecived:{img, title}, kudosReciverName}) => {
-  console.log(process.env.PUBLIC_URL + img);
   return (
     <StyledWrapper>
-      <Icon big src={process.env.PUBLIC_URL + img} />
+      <Icon big src={`${img}`} />
       <DescrptionWrapper>
         <Text>{title}</Text>
         <Heading>{kudosReciverName}</Heading>

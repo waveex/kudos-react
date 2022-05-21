@@ -7,7 +7,7 @@ import dots from "../../../assets/img/icons/ellipsis-vertical-solid.svg";
 import { connect } from "react-redux";
 import { addHeart } from "../../../actions/addAction";
 import PropTypes from "prop-types";
-import icon from "/img/kudos/RealtimeCollaboration.svg";
+import icon from "../../../assets/img/kudos/RealtimeCollaboration.svg";
 import { Text } from "../../atoms/Text/Text";
 
 const Options = ({ likes }) => {
@@ -18,7 +18,7 @@ const Options = ({ likes }) => {
   return (
     <StyledWrapper>
       <OptionsWrapper>
-        <Icon src={process.env.PUBLIC_URL +icon} />
+        <Icon src={icon} />
         <Text link>Marketing</Text>
       </OptionsWrapper>
       <SocialWrapper>
