@@ -11,10 +11,15 @@ import React, {
   import createMentionPlugin, {
     defaultSuggestionsFilter,
   } from '@draft-js-plugins/mention';
+  import createHashtagPlugin from '@draft-js-plugins/hashtag';
   import editorStyles from './RemoteMentionEditor.module.css';
+  import createEmojiPlugin from '@draft-js-plugins/emoji';
+  import '../../../../node_modules/@draft-js-plugins/emoji/lib/plugin.css'
+  import '../../../../node_modules/@draft-js-plugins/hashtag/lib/plugin.css'
 
 
 const RemoteMentionEditor = ({persons}) => {
+
     function Entry(props) {
         const {
             persons,
@@ -51,25 +56,31 @@ const RemoteMentionEditor = ({persons}) => {
         );
       }
     const ref = useRef(null);
+
     const [editorState, setEditorState] = useState(() =>
       EditorState.createEmpty()
     );
     const [open, setOpen] = useState(false);
     const [suggestions, setSuggestions] = useState(persons);
 
-    const { MentionSuggestions, plugins } = useMemo(() => {
+    const { MentionSuggestions, plugins, EmojiSuggestions, EmojiSelect } = useMemo(() => {
       const mentionPlugin = createMentionPlugin({
         entityMutability: 'IMMUTABLE',
         theme: mentionsStyles,
         mentionPrefix: '@',
         supportWhitespace: true,
       });
+    const emojiPlugin = createEmojiPlugin();
+    const hashtagPlugin = createHashtagPlugin();
+
       // eslint-disable-next-line no-shadow
+      const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
       const { MentionSuggestions } = mentionPlugin;
       // eslint-disable-next-line no-shadow
-      const plugins = [mentionPlugin];
-      return { plugins, MentionSuggestions };
+      const plugins = [mentionPlugin, emojiPlugin, hashtagPlugin];
+      return { plugins, MentionSuggestions, EmojiSuggestions, EmojiSelect };
     }, []);
+
     const onChange = useCallback((_editorState) => {
         setEditorState(_editorState);
       }, []);
@@ -104,6 +115,8 @@ const RemoteMentionEditor = ({persons}) => {
           entryComponent={Entry}
         popoverContainer={({ children }) => <div className={editorStyles.popoverContainer}>{children}</div>}
         />
+        <EmojiSuggestions />
+        <EmojiSelect  />
       </div>
     );
 }

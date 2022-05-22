@@ -14,11 +14,7 @@ const PostForm = ({persons}) => {
   return (
     <StyledWrapper>
     <RemoteMentionEditor persons={persons} />
-      <EmoticonsWrapper>
-        <Icon comment src={gif} />
-        <Icon comment src={emotikon} />
-        <Icon comment src={attachment} />
-      </EmoticonsWrapper>
+
     </StyledWrapper>
   );
 };
