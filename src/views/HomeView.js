@@ -15,7 +15,7 @@ const HomeView = ({ posts, persons, kudoses }) => {
     <StyledWrapper>
       <AddPost onClick={handleOpenModal} persons={persons} />
       <Modal isOpen={isOpen} >
-        <AddPostForm handleCloseModal={handleCloseModal} />
+        <AddPostForm handleCloseModal={handleCloseModal} kudoses={kudoses} persons={persons} />
       </Modal>
       <PostsList posts={posts} persons={persons} kudoses={kudoses} />
     </StyledWrapper>

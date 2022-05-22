@@ -1,13 +1,12 @@
 import React from 'react';
 import { NotesWrapper } from './AddPostForm.styles';
-import Form from '../components/organisms/Form/Form';
+import KudosList from '../components/organisms/KudosList/KudosList';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import FormHeader from '../components/molecules/FormHeader/FormHeader';
 import PostForm from '../components/molecules/PostForm/PostForm';
 import { Text } from '../components/atoms/Text/Text';
 import PersonSelect from '../components/molecules/PersonSelect/PersonSelect';
-import { StyledEditor } from '../components/atoms/Editor/Editor';
 
 const AddPostForm = ({kudoses, persons, handleCloseModal }) => {
     return (
@@ -16,7 +15,7 @@ const AddPostForm = ({kudoses, persons, handleCloseModal }) => {
             <PostForm persons={persons} />
             <Text>Wybierz osobę, której przyznajesz kudos</Text>
             <PersonSelect persons={persons} />
-           {/* <Form kudoses={kudoses} persons={persons} /> */}
+        <KudosList kudoses={kudoses} />
        </NotesWrapper>
     );
 }
@@ -35,13 +34,5 @@ AddPostForm.propTypes = {
       }),
     ),
   };
-  AddPostForm.defaultProps = {
-    kudoses: [],
-    persons: [],
-  };
 
-  const mapStateToProps = state => ({
-    kudoses: state.kudosState,
-    persons: state.personsState,
-  });
-export default connect(mapStateToProps)(AddPostForm);
+export default AddPostForm;

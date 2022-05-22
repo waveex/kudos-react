@@ -6,7 +6,7 @@ const Select = styled(ReactSelect)`
   font-weight: ${({ theme }) => theme.regular};
   font-size: ${({ theme }) => theme.small};
   color: ${({ theme }) => theme.darkgray};
-  width: 183px;
+  width: 500px;
   ${props =>
     props.multi &&
     css`
