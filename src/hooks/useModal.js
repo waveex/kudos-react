@@ -5,11 +5,9 @@ const useModal = (initialState = false) => {
 
   const handleOpenModal = () => {
     setModalState(true);
-    document.body.style.overflow = "hidden";
   };
   const handleCloseModal = () => {
     setModalState(false);
-    document.body.style.overflow = "visible";
   };
 
   return {

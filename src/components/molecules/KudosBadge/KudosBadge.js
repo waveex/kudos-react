@@ -17,26 +17,10 @@ const KudosBadge = ({kudosBadgeRecived:{img, title}, kudosReciverName}) => {
   );
 };
 KudosBadge.propTypes = {
-  kudos: PropTypes.number,
-  persons: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      img: PropTypes.string,
-      isActive: PropTypes.bool,
-    }),
-  ),
-  kudoses: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
-      img: PropTypes.string,
-    }),
-  ),
+ img: PropTypes.string,
+ title: PropTypes.string,
+ kudosReciverName: PropTypes.string
 };
 
-KudosBadge.defaultProps = {
-  persons: {},
-  kudoses: {},
-};
+
 export default KudosBadge;

@@ -14,27 +14,10 @@ const HomeView = ({ posts, persons, kudoses }) => {
   return (
     <StyledWrapper>
       <AddPost onClick={handleOpenModal} persons={persons} />
-      <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
-        <AddPostForm />
+      <Modal isOpen={isOpen} >
+        <AddPostForm handleCloseModal={handleCloseModal} />
       </Modal>
       <PostsList posts={posts} persons={persons} kudoses={kudoses} />
-      {/* {posts.map(
-        ({ postId, date, authorId, description, kudos, likes, img }) => (
-          <Post
-            key={postId}
-            name={name}
-            avatar={img}
-            date={date}
-            description={description}
-            postId={postId}
-            kudos={kudos}
-            kudoses={kudoses}
-            persons={persons}
-            likes={likes}
-            posts={posts}
-          />
-        )
-      )} */}
     </StyledWrapper>
   );
 };

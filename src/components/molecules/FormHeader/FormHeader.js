@@ -5,18 +5,14 @@ import { Heading } from "../../atoms/Heading/Heading";
 import { Link } from "react-router-dom";
 import { Icon } from "../../atoms/Icon/Icon";
 import close from "../../../assets/img/icons/close.svg";
-import useModal from "../../../hooks/useModal";
 import Button from "../../atoms/Button/Button";
 
-const FormHeader = () => {
-  const { handleCloseModal } = useModal();
+const FormHeader = ({handleCloseModal}) => {
   return (
     <StyledWrapper>
       <Icon src={icon} />
-      <Heading form>Utwórz kudos</Heading>
-        <Button onClick={handleCloseModal}>
-        <Icon form src={close} />
-        </Button>
+      <Heading >Utwórz kudos</Heading>
+        <Icon onClick={handleCloseModal} src={close} />
     </StyledWrapper>
   );
 };

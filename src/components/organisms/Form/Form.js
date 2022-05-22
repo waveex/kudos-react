@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "../../atoms/Text/Text";
-import AddKudoForm from "../../molecules/AddKudoForm/AddKudoForm";
+import Kudos from "../../molecules/Kudos/Kudos";
 import FormHeader from "../../molecules/FormHeader/FormHeader";
 import GroupSelect from "../../molecules/GroupSelect/GroupSelect";
 import PersonSelect from "../../molecules/PersonSelect/PersonSelect";
@@ -17,7 +17,7 @@ const Form = ({ kudoses, persons}) => {
       <Text >Wybierz kudos</Text>
       {
         kudoses.map(({ title, description, img, id }) => (
-        <AddKudoForm
+        <Kudos
           title={title}
           description={description}
           img={img}
