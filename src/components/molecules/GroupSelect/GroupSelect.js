@@ -1,56 +1,44 @@
-import React from 'react';
-import Button from '../../atoms/Button/Button';
-import { Icon } from '../../atoms/Icon/Icon';
-import Select from '../../atoms/Select/Select';
-import { OptionWrapper, StyledWrapper } from './GroupSelect.styles';
-import iconCity from '../../../assets/img/icons/city-solid.svg'
-import { Text } from '../../atoms/Text/Text';
+import React from "react";
+import { Icon } from "../../atoms/Icon/Icon";
+import Select from "../../atoms/Select/Select";
+import { OptionWrapper, StyledWrapper } from "./GroupSelect.styles";
+import iconCity from "../../../assets/img/icons/city-solid.svg";
+import { Text } from "../../atoms/Text/Text";
+import { connect } from "react-redux";
+import { Controller } from "react-hook-form";
 
-const GroupSelect = () => {
-    const options = [
-        {
-          value: 'Białystok',
-          label: (
-            <OptionWrapper>
-              <Icon src={iconCity} />
-              <Text select>Białystok</Text>
-            </OptionWrapper>
-          ),
-        },
-        {
-          value: 'Marketing',
-          label: (
-            <OptionWrapper>
-              <Icon src={iconCity} />
-              <Text select>Bydgoszcz</Text>
-            </OptionWrapper>
-          ),
-        },
-        {
-          value: 'Warszawa',
-          label: (
-            <OptionWrapper>
-              <Icon src={iconCity} />
-              <Text select>Warszawa</Text>
-            </OptionWrapper>
-          ),
-        },
-        {
-          value: 'HR',
-          label: (
-            <OptionWrapper>
-              <Icon src={iconCity} />
-              <Text select>Poznań</Text>
-            </OptionWrapper>
-          ),
-        },
-      ];
-    return (
-     <StyledWrapper>
-        <Select options={options} />
-        <Button>Opublikuj</Button>
-     </StyledWrapper>
-    );
-}
 
-export default GroupSelect;
+const GroupSelect = ({ groups, control }) => {
+  console.log(groups);
+  const options = groups.map((group) => {
+    return {
+      value: `${group.name}`,
+      label: group.name,
+      id: group.id,
+    };
+  });
+  return (
+    <Controller
+    control={control}
+    name="Group"
+    render={({
+      field: { onChange, onBlur, value, name, ref },
+      fieldState: { invalid, isTouched, isDirty, error },
+      formState,
+    }) => (
+      <StyledWrapper>
+      <Select  options={options} onChange={onChange}  />
+    </StyledWrapper>
+    )}
+  />
+  );
+};
+const mapStatetoProps = (state) => ({
+  groups: state.groupState,
+});
+
+GroupSelect.defaultProps = {
+  groups: {},
+};
+
+export default connect(mapStatetoProps, null)(GroupSelect);

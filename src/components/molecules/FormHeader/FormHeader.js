@@ -7,6 +7,7 @@ import { Icon } from "../../atoms/Icon/Icon";
 import close from "../../../assets/img/icons/close.svg";
 import Button from "../../atoms/Button/Button";
 
+
 const FormHeader = ({handleCloseModal}) => {
   return (
     <StyledWrapper>

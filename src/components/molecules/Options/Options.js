@@ -4,8 +4,6 @@ import { OptionsWrapper, SocialWrapper, StyledWrapper } from "./Options.styles";
 import heart from "../../../assets/img/icons/heart-solid.svg";
 import comment from "../../../assets/img/icons/message-solid.svg";
 import dots from "../../../assets/img/icons/ellipsis-vertical-solid.svg";
-import { connect } from "react-redux";
-import { addHeart } from "../../../actions/addAction";
 import PropTypes from "prop-types";
 import icon from "../../../assets/img/kudos/RealtimeCollaboration.svg";
 import { Text } from "../../atoms/Text/Text";

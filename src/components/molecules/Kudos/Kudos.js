@@ -2,15 +2,17 @@ import React from 'react';
 import { Heading } from '../../atoms/Heading/Heading';
 import { Icon } from '../../atoms/Icon/Icon';
 import { Text } from '../../atoms/Text/Text';
-import { DescriptionWrapper, StyledWrapper } from './Kudos.styles';
+import { DescriptionWrapper, Input, StyledWrapper } from './Kudos.styles';
 import PropTypes from 'prop-types';
 
 
-const Kudos = ({img, title, description}) => {
+const Kudos = ({img, title, description, id, onChange}) => {
     return (
-        <StyledWrapper>
+       <>
+            <Input id={id}  type="radio" onChange={onChange}  name="kudos" />
+             <StyledWrapper htmlFor={id}>
             <Icon kudos src={`${img}`} />
-                <DescriptionWrapper>
+                <DescriptionWrapper >
                     <Text kudos>
                     {title}
                     </Text>
@@ -19,6 +21,7 @@ const Kudos = ({img, title, description}) => {
                     </Heading>
                 </DescriptionWrapper>
         </StyledWrapper>
+        </>
         );
 }
 Kudos.propTypes = {

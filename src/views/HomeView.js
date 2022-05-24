@@ -1,6 +1,5 @@
 import React from "react";
 import AddPost from "../components/organisms/AddPost/AddPost";
-import Post from "../components/organisms/Post/Post";
 import { StyledWrapper } from "./HomeView.styles";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -14,8 +13,16 @@ const HomeView = ({ posts, persons, kudoses }) => {
   return (
     <StyledWrapper>
       <AddPost onClick={handleOpenModal} persons={persons} />
-      <Modal isOpen={isOpen} >
-        <AddPostForm handleCloseModal={handleCloseModal} kudoses={kudoses} persons={persons} />
+      <Modal
+        isOpen={isOpen}
+        closeTimeoutMS={200}
+        onRequestClose={handleCloseModal}
+      >
+        <AddPostForm
+          handleCloseModal={handleCloseModal}
+          kudoses={kudoses}
+          persons={persons}
+        />
       </Modal>
       <PostsList posts={posts} persons={persons} kudoses={kudoses} />
     </StyledWrapper>

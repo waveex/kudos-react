@@ -1,38 +1,47 @@
-import React from 'react';
-import { NotesWrapper } from './AddPostForm.styles';
-import KudosList from '../components/organisms/KudosList/KudosList';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import FormHeader from '../components/molecules/FormHeader/FormHeader';
-import PostForm from '../components/molecules/PostForm/PostForm';
-import { Text } from '../components/atoms/Text/Text';
-import PersonSelect from '../components/molecules/PersonSelect/PersonSelect';
+import React, { useState } from "react";
+import { FormWrapper } from "./AddPostForm.styles";
+import KudosList from "../components/organisms/KudosList/KudosList";
+import PropTypes from "prop-types";
+import FormHeader from "../components/molecules/FormHeader/FormHeader";
+import PostForm from "../components/molecules/PostForm/PostForm";
+import PersonSelect from "../components/molecules/PersonSelect/PersonSelect";
+import FormFooter from "../components/molecules/FormFooter/FormFooter";
+import { useForm } from "react-hook-form";
 
-const AddPostForm = ({kudoses, persons, handleCloseModal }) => {
-    return (
-       <NotesWrapper>
-            <FormHeader handleCloseModal={handleCloseModal} />
-            <PostForm persons={persons} />
-            <Text>Wybierz osobę, której przyznajesz kudos</Text>
-            <PersonSelect persons={persons} />
-        <KudosList kudoses={kudoses} />
-       </NotesWrapper>
-    );
-}
+const AddPostForm = ({ kudoses, persons, handleCloseModal }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    control,
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  return (
+    <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+      <FormHeader handleCloseModal={handleCloseModal} />
+      <PostForm control={control} persons={persons} />
+      <PersonSelect persons={persons} control={control} />
+      <KudosList kudoses={kudoses} control={control} />
+      <FormFooter control={control} />
+    </FormWrapper>
+  );
+};
 AddPostForm.propTypes = {
-    kudoses: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string,
-        description: PropTypes.string,
-      }),
-    ),
-    persons: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        id: PropTypes.number,
-        isActive: PropTypes.bool,
-      }),
-    ),
-  };
+  kudoses: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    })
+  ),
+  persons: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
+      isActive: PropTypes.bool,
+    })
+  ),
+};
 
 export default AddPostForm;

@@ -44,7 +44,7 @@ export const Text = styled.p`
   ${(props) =>
     props.select &&
     css`
-      color: ${({ theme }) => theme.darkgray};
+      color: ${({ theme }) => theme.darkGray};
       margin: 0 0 0 8px;
     `};
 
@@ -52,14 +52,14 @@ export const Text = styled.p`
     props.kudos &&
     css`
       color: ${({ theme }) => theme.darkgray};
-      font-size: ${({ theme }) => theme.small};
+      font-size: ${({ theme }) => theme.s};
       margin: 0;
     `};
 
   ${(props) =>
     props.form &&
     css`
-      color: ${({ theme }) => theme.darkgray};
+      color: ${({ theme }) => theme.darkGray};
       margin: 22px 0 8px 0;
     `};
 `;

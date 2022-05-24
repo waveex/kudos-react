@@ -1,20 +1,27 @@
 import React from "react";
-import { Icon } from "../../atoms/Icon/Icon";
-import { EmoticonsWrapper, StyledWrapper } from "./PostForm.styles";
-import gif from "../../../assets/img/icons/gif.svg";
-import emotikon from "../../../assets/img/icons/emotikon.svg";
-import attachment from "../../../assets/img/icons/attachment-icon.svg";
-import EditorComponent from "../Editor/Editor";
-import 'draft-js/dist/Draft.css';
+
+import { StyledWrapper } from "./PostForm.styles";
+
+import "draft-js/dist/Draft.css";
 import RemoteMentionEditor from "../Editor/Editor";
+import { Text } from "../../atoms/Text/Text";
+import { Controller } from "react-hook-form";
 
-const PostForm = ({persons}) => {
-
-
+const PostForm = ({ persons, control }) => {
   return (
     <StyledWrapper>
-    <RemoteMentionEditor persons={persons} />
-
+      <Text>Treść posta nad kudosem</Text>
+      <Controller
+        control={control}
+        name="Editor"
+        render={({
+          field: { onChange, onBlur, value, name, ref },
+          fieldState: { invalid, isTouched, isDirty, error },
+          formState,
+        }) => (
+          <RemoteMentionEditor persons={persons} onChange={onChange}  />
+        )}
+      />
     </StyledWrapper>
   );
 };

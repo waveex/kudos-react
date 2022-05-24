@@ -1,11 +1,17 @@
 import React from 'react';
+import Button from '../../atoms/Button/Button';
 import { Text } from '../../atoms/Text/Text';
-import { StyledWrapper } from './FormFooter.styles';
+import GroupSelect from '../GroupSelect/GroupSelect';
+import { GroupSelcetionWrapper, StyledWrapper } from './FormFooter.styles';
 
-const FormFooter = () => {
+const FormFooter = ({ control}) => {
     return (
         <StyledWrapper>
-            <Text form>Wybierz grupę</Text>
+        <GroupSelcetionWrapper>
+            <Text >Wybierz grupę</Text>
+            <GroupSelect control={control} />
+            </GroupSelcetionWrapper>
+            <Button onClick={()=> console.log("dupa")}> Opublikuj </Button>
         </StyledWrapper>
     );
 }

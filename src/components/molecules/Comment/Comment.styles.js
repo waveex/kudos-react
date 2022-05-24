@@ -6,7 +6,7 @@ display: flex;
   padding-top: 16px;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid ${({ theme }) => theme.grayborder};
+  border-top: 1px solid ${({ theme }) => theme.borderGray};
 `;
 
 export const IconsWrapper  = styled.div`
@@ -15,7 +15,7 @@ export const IconsWrapper  = styled.div`
   align-items: center;
   margin-left: 8px;
   background-color: ${({ theme }) => theme.white};
-  border: ${({ theme }) => theme.border} ${({ theme }) => theme.grayborder};
+  border: ${({ theme }) => theme.border} ${({ theme }) => theme.borderGray};
   border-radius: ${({ theme }) => theme.rounded};
   width: 100%;
   height: 32px;

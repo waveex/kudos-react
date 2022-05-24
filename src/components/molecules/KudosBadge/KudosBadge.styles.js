@@ -6,7 +6,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: ${({ theme }) => theme.border} ${({ theme }) => theme.grayBorder};
+  border: ${({ theme }) => theme.border} ${({ theme }) => theme.borderGray};
   border-radius: ${({ theme }) => theme.rounded};
   padding-left: 29px;
   &:hover{

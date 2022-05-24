@@ -3,15 +3,14 @@ import styled from "styled-components";
 export const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
+  width: 100%;
+  flex-direction: column;
+p {
+  font: normal normal 600 14px/21px Poppins;
+letter-spacing: 0px;
+color:  ${({ theme }) => theme.darkGray};
+}
 `;
 
-export const EmoticonsWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  position: absolute;
-  right: 15px;
-  bottom: 45px;
-`;

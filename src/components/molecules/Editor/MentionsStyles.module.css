@@ -1,9 +1,9 @@
 .mention {
-    color: #4a85bb;
+    color: #A8996F;
     text-decoration: none;
   }
 .popoverContainer {
-    position: absolute;
+    position: fixed;
     top: 10px;
 }
   .mentionSuggestions {

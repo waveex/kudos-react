@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const Icon = styled.img`
-  background-color: ${({ theme }) => theme.borderGray};
   height: 24px;
   width: 24px;
   padding: 3px;
