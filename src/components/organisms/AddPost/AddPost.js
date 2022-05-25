@@ -5,8 +5,8 @@ import { Text } from "../../atoms/Text/Text";
 import { StyledWrapper } from "./AddPost.styles";
 import icon from "../../../assets/img/icons/agreement.svg";
 import PropTypes from "prop-types";
-const AddPost = ({ persons ,...props }) => {
-  const activePerson = persons.find((person) => person.isActive);
+
+const AddPost = ({activePerson, persons, ...props }) => {
 
   return (
     <StyledWrapper {...props}>

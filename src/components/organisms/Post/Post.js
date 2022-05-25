@@ -6,18 +6,31 @@ import { StyledWrapper } from "./Post.styles";
 import PropTypes from "prop-types";
 import { Comment } from "../../molecules/Comment/Comment";
 import Options from "../../molecules/Options/Options";
-const Post = ({ posts: {avatar, date, kudos, likes, postDescription, authorId},  persons, kudoses }) => {
-  const author = persons.find((person) => person.id === authorId)
+const Post = ({
+  postId,
+  authorId,
+  avatar,
+  date,
+  likes,
+  kudos,
+  persons,
+  kudoses,
+  postDescription
+}) => {
+  const author = persons.find((person) => person.id === authorId);
   const activePerson = persons.find((person) => person.isActive);
-  const kudosReciver = persons.find((person) => person.id === kudos.personId)
-  const kudosReciverName = kudosReciver.name
-  const kudosBadgeRecived = kudoses.find((kudo) => kudo.id === kudos.kudosId)
+  const kudosReciver = persons.find((person) => person.id === kudos.personId);
+  const kudosReciverName = kudosReciver.name;
+  const kudosBadgeRecived = kudoses.find((kudo) => kudo.id === kudos.kudosId);
   return (
     <StyledWrapper>
       <Header name={author.name} date={date} avatar={avatar} />
       <Text>{postDescription}</Text>
-      <KudosBadge kudosBadgeRecived={kudosBadgeRecived} kudosReciverName={kudosReciverName} />
-      <Options  likes={likes} />
+      <KudosBadge
+        kudosBadgeRecived={kudosBadgeRecived}
+        kudosReciverName={kudosReciverName}
+      />
+      <Options likes={likes} />
       <Comment avatar={activePerson.img} />
     </StyledWrapper>
   );
@@ -41,6 +54,6 @@ Post.propTypes = {
 };
 Post.defaultProps = {
   persons: [],
-  kudoses: []
+  kudoses: [],
 };
 export default Post;

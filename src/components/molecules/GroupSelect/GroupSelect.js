@@ -9,7 +9,6 @@ import { Controller } from "react-hook-form";
 
 
 const GroupSelect = ({ groups, control }) => {
-  console.log(groups);
   const options = groups.map((group) => {
     return {
       value: `${group.name}`,

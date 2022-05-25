@@ -11,7 +11,7 @@ const FormFooter = ({ control}) => {
             <Text >Wybierz grupę</Text>
             <GroupSelect control={control} />
             </GroupSelcetionWrapper>
-            <Button onClick={()=> console.log("dupa")}> Opublikuj </Button>
+            <Button  type="submit"> Opublikuj </Button>
         </StyledWrapper>
     );
 }

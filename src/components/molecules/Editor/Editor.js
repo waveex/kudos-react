@@ -115,7 +115,6 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
         }}
         value={value}
         plugins={plugins}
-        autoComplete
         spellCheck
         placeholder="Napisz wiadomość 😊"
       />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormWrapper } from "./AddPostForm.styles";
 import KudosList from "../components/organisms/KudosList/KudosList";
 import PropTypes from "prop-types";
@@ -8,15 +8,15 @@ import PersonSelect from "../components/molecules/PersonSelect/PersonSelect";
 import FormFooter from "../components/molecules/FormFooter/FormFooter";
 import { useForm } from "react-hook-form";
 
-const AddPostForm = ({ kudoses, persons, handleCloseModal }) => {
+const AddPostForm = ({    onSubmit,  kudoses,  persons,  handleCloseModal,}) => {
+
   const {
-    register,
     handleSubmit,
-    watch,
     formState: { errors },
+    watch,
     control,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
 
   return (
     <FormWrapper onSubmit={handleSubmit(onSubmit)}>
