@@ -3,7 +3,6 @@ import Post from "../Post/Post";
 import { StyledWrapper } from "./PostsList.styles";
 
 const PostsList = ({ persons, kudoses, postsList }) => {
-  console.log(postsList);
   return (
     <StyledWrapper>
       {postsList.map((singlePost) => (

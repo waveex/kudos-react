@@ -4,6 +4,7 @@ import icon from "../../../assets/img/icons/agreement-purple.svg";
 import { Heading } from "../../atoms/Heading/Heading";
 import close from "../../../assets/img/icons/close.svg";
 import PropTypes from "prop-types";
+import { Icon } from "../../atoms/Icon/Icon";
 
 
 const FormHeader = ({handleCloseModal}) => {

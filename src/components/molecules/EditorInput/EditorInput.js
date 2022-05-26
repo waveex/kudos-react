@@ -94,7 +94,6 @@ const EditorInput = ({ persons, value, onChange }) => {
   const onSearchChange = useCallback(({ value }) => {
     setSuggestions(defaultSuggestionsFilter(value, persons));
   }, []);
-  console.log(convertToHTML(editorState.getCurrentContent()));
   const editorContent = editorState
     .getCurrentContent()
     .getPlainText("\u0001").length;
