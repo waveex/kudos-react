@@ -4,7 +4,7 @@ import Select from "../../atoms/Select/Select";
 import { Text } from "../../atoms/Text/Text";
 import { StyledWrapper } from "./PersonSelect.styles";
 import { Controller } from "react-hook-form";
-import FixRequiredSelect from "../../atoms/Select/FixRequiredSelect";
+import FixRequiredSelect from "../FixRequiredSelect.js/FixRequiredSelect";
 
 
 

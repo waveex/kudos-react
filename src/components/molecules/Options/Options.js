@@ -56,6 +56,12 @@ const Options = ({ likes, group, groups }) => {
 Options.propTypes = {
   id: PropTypes.number,
   likesNumber: PropTypes.number,
+  incrementLikes: PropTypes.func,
+  toggleVisibilty: PropTypes.func,
+  dots: PropTypes.string,
+  isOpen: PropTypes.bool,
+  comment: PropTypes.string
+
 };
 const mapStatetoProps = (state) => ({
   groups: state.groupState,

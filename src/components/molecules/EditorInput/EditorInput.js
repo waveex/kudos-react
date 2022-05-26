@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { EditorState } from "draft-js";
 import Editor from "@draft-js-plugins/editor";
 import mentionsStyles from "./MentionsStyles.module.css";
@@ -12,8 +12,9 @@ import "../../../../node_modules/@draft-js-plugins/emoji/lib/plugin.css";
 import "../../../../node_modules/@draft-js-plugins/hashtag/lib/plugin.css";
 import createCounterPlugin from "@draft-js-plugins/counter";
 import counterStyles from "./CouterStyles.css";
-import PropTypes from 'prop-types';
 import "../../../../node_modules/@draft-js-plugins/counter/lib/plugin.css";
+import { convertToHTML } from "draft-convert";
+import PropTypes from "prop-types";
 
 function Entry(props) {
   const {
@@ -42,7 +43,6 @@ function Entry(props) {
 }
 
 const EditorInput = ({ persons, value, onChange }) => {
-  const ref = useRef(null)
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
@@ -56,6 +56,13 @@ const EditorInput = ({ persons, value, onChange }) => {
         theme: mentionsStyles,
         mentionPrefix: "@",
         supportWhitespace: true,
+        mentionComponent({children}) {
+          return (
+            <span className={mentionsStyles.mentionWrapper}>
+              {console.log(children)}
+            </span>
+          );
+        },
       });
       const emojiPlugin = createEmojiPlugin();
       const hashtagPlugin = createHashtagPlugin();
@@ -87,6 +94,7 @@ const EditorInput = ({ persons, value, onChange }) => {
   const onSearchChange = useCallback(({ value }) => {
     setSuggestions(defaultSuggestionsFilter(value, persons));
   }, []);
+  console.log(convertToHTML(editorState.getCurrentContent()));
   const editorContent = editorState
     .getCurrentContent()
     .getPlainText("\u0001").length;
@@ -95,12 +103,6 @@ const EditorInput = ({ persons, value, onChange }) => {
       setReadOnly(true);
     }
   }, [editorContent]);
-  useEffect(() => {
-    if(ref.current){
-      ref.current.focus()
-    }
-
-  }, [])
 
   return (
     <div
@@ -110,7 +112,6 @@ const EditorInput = ({ persons, value, onChange }) => {
       }}
     >
       <Editor
-        ref={ref}
         required
         name="editorInput"
         editorKey={"editorInput"}
@@ -146,7 +147,6 @@ const EditorInput = ({ persons, value, onChange }) => {
   );
 };
 EditorInput.propTypes = {
-   onChange: PropTypes.func.isRequired,
-};
-
+  onChange: PropTypes.func,
+}
 export default EditorInput;

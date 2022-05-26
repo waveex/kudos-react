@@ -38,7 +38,7 @@ const Post = ({
       <Header name={author.name} date={timeSincePosted} avatar={avatar} />
       <Text>{postDescription}</Text>
       <KudosBadge
-        kudosBadgeRecived={kudosBadgeRecived}
+       kudosBadgeRecived={kudosBadgeRecived}
         kudosReciverName={kudosReciverName}
       />
       <Options likes={likes} group={group} />

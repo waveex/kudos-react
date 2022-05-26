@@ -5,6 +5,7 @@ import { Icon } from '../../atoms/Icon/Icon';
 import { Heading } from '../../atoms/Heading/Heading';
 import { InfoWrapper, StyledWrapper } from './Header.styles';
 import icon from '../../../assets/img/icons/agreement.svg'
+import PropTypes from "prop-types";
 
 
 const Header = ({avatar, name, date}) => {
@@ -21,5 +22,9 @@ const Header = ({avatar, name, date}) => {
       </div>
     );
 }
-
+Header.propTypes = {
+  avatar: PropTypes.string,
+  name: PropTypes.string,
+  icon: PropTypes.string
+};
 export default Header;

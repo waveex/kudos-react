@@ -12,6 +12,9 @@ const Button = styled.button`
   border-radius: 6px;
   border: none;
   transition: 0.3s all ease-in-out;
+  :hover {
+    background-color: ${({ theme }) => theme.gold};
+  }
   ${(props) =>
     props.options &&
     css`
@@ -37,6 +40,16 @@ const Button = styled.button`
       align-items: center;
       :hover {
         filter: invert(2) sepia(5) saturate(2) hue-rotate(15deg);
+      }
+    `}
+    ${(props) =>
+    props.social &&
+    css`
+    width: ${({ theme }) => theme.l};
+      height: ${({ theme }) => theme.l};
+        margin: 0 5px;
+      :hover {
+        filter: invert(2) sepia(5) saturate(2) hue-rotate(35deg);
       }
     `}
     ${(props) =>

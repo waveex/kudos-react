@@ -13,10 +13,3 @@ letter-spacing: 0pt;
 color: #616161;
   }
 `;
-export  const OptionWrapper = styled.div`
-width: 183px;
-  display: flex;
-  height: 24px;
-  align-items: center;
-
-`;

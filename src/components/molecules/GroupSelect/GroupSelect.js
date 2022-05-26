@@ -1,45 +1,53 @@
 import React from "react";
-import { Icon } from "../../atoms/Icon/Icon";
 import Select from "../../atoms/Select/Select";
-import { OptionWrapper, StyledWrapper } from "./GroupSelect.styles";
-import iconCity from "../../../assets/img/icons/city-solid.svg";
-import { Text } from "../../atoms/Text/Text";
+import { StyledWrapper } from "./GroupSelect.styles";
 import { connect } from "react-redux";
 import { Controller } from "react-hook-form";
-import FixRequiredSelect from "../../atoms/Select/FixRequiredSelect";
+import FixRequiredSelect from "../FixRequiredSelect.js/FixRequiredSelect";
+import PropTypes from "prop-types";
 
 
 const GroupSelect = ({ groups, control }) => {
-
-
-  const FixedSelect = props => (
-    <FixRequiredSelect
-      {...props}
-      SelectComponent={Select}
-       />
+  const FixedSelect = (props) => (
+    <FixRequiredSelect {...props} SelectComponent={Select} />
   );
   const options = groups.map((group) => {
     return {
       value: `${group.name}`,
-      label: (group.name),
+      label: group.name,
       id: group.id,
     };
   });
   return (
     <Controller
-    control={control}
-    name="selectGroup"
-    render={({
-      field: { onChange, onBlur, value, name, ref },
-      fieldState: { invalid, isTouched, isDirty, error },
-      formState,
-    }) => (
-      <StyledWrapper>
-      <FixedSelect className="selectGroup" group options={options} onChange={onChange}  />
-    </StyledWrapper>
-    )}
-  />
+      control={control}
+      name="selectGroup"
+      render={({
+        field: { onChange }
+             }) => (
+        <StyledWrapper>
+          <FixedSelect
+            className="selectGroup"
+            group
+            options={options}
+            onChange={onChange}
+          />
+        </StyledWrapper>
+      )}
+    />
   );
+};
+GroupSelect.propTypes = {
+  options:  PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      label: PropTypes.string,
+      id: PropTypes.number,
+    })
+  ),
+  onChange: PropTypes.func,
+  value: PropTypes.number,
+  name: PropTypes.string
 };
 const mapStatetoProps = (state) => ({
   groups: state.groupState,

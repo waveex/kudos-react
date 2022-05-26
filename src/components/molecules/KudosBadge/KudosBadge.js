@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 const KudosBadge = ({kudosBadgeRecived:{img, title}, kudosReciverName}) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper isDisabled>
       <Icon big src={`${img}`} />
       <DescrptionWrapper>
         <Text>{title}</Text>

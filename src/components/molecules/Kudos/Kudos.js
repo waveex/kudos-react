@@ -28,8 +28,10 @@ const Kudos = ({ img, title, description, id, onChange, kudoses }) => {
   );
 };
 Kudos.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  img: PropTypes.string,
+  id: PropTypes.number,
+  onChange: PropTypes.func,
+  value: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string
 };
 export default Kudos;

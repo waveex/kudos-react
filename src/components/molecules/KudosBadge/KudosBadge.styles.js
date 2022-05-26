@@ -9,9 +9,7 @@ export const StyledWrapper = styled.div`
   border: ${({ theme }) => theme.border} ${({ theme }) => theme.borderGray};
   border-radius: ${({ theme }) => theme.rounded};
   padding-left: 29px;
-  &:hover{
-    border : ${({theme}) => theme.border} ${({theme}) => theme.gold}
-  }
+
 `;
 
 export const DescrptionWrapper = styled.div`

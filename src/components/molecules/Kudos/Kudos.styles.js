@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css }  from 'styled-components';
 
 export const StyledWrapper = styled.label`
   padding: 20px;
@@ -6,12 +6,17 @@ display: flex;
 height: 80px;
 width: 100%;
 justify-content: space-between;
-border: 1px solid ${({theme}) => theme.gray};
+border: 1px solid ${({theme}) => theme.borderGray};
 padding-left: 29px;
 align-items: center;
 margin-top: 16px;
+border-radius: 6px;
+transition: .3s all ease-in-out;
+
+
 &:hover {
-    background-color: ${({ theme }) => theme.lightGray};
+    background-color: ${({ theme }) => theme.borderGray};
+    border: 1px solid ${({theme}) => theme.gold};
   }
 img {
   max-width: 70px;
@@ -42,4 +47,5 @@ export const Input = styled.input`
     background-color: ${({ theme }) => theme.lightGray};
     border: 1px solid #a8996f;
   }
+
 `;

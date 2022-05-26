@@ -13,6 +13,7 @@ export const IconsWrapper  = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: end;
   margin-left: 8px;
   background-color: ${({ theme }) => theme.white};
   border: ${({ theme }) => theme.border} ${({ theme }) => theme.borderGray};
