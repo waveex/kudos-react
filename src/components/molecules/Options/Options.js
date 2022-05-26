@@ -21,7 +21,7 @@ const Options = ({ likes, group, groups }) => {
   const  toggleVisibilty = (e) => {
     e.preventDefualt
     setIsVisible(!isOpen)
-    console.log(isOpen);
+
   }
   const groupName = activeGroup;
 

@@ -56,13 +56,6 @@ const EditorInput = ({ persons, value, onChange }) => {
         theme: mentionsStyles,
         mentionPrefix: "@",
         supportWhitespace: true,
-        mentionComponent({children}) {
-          return (
-            <span className={mentionsStyles.mentionWrapper}>
-              {console.log(children)}
-            </span>
-          );
-        },
       });
       const emojiPlugin = createEmojiPlugin();
       const hashtagPlugin = createHashtagPlugin();
@@ -147,5 +140,5 @@ const EditorInput = ({ persons, value, onChange }) => {
 };
 EditorInput.propTypes = {
   onChange: PropTypes.func,
-}
+};
 export default EditorInput;

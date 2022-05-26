@@ -60,7 +60,7 @@ const HomeView = ({ posts, persons, kudoses }) => {
     const getSelectedKudos = data.selectedKudos;
     const selectedPerson = getSelectedPerson.value.id;
     const getSelectedGroup = selectedData.selectGroup.id
-    console.log(getSelectedGroup);
+
     let newPost = {
       postId: getRandomIntInclusive(7, 99),
       authorId: activePerson.id,
