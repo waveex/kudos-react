@@ -6,13 +6,22 @@ import iconCity from "../../../assets/img/icons/city-solid.svg";
 import { Text } from "../../atoms/Text/Text";
 import { connect } from "react-redux";
 import { Controller } from "react-hook-form";
+import FixRequiredSelect from "../../atoms/Select/FixRequiredSelect";
 
 
 const GroupSelect = ({ groups, control }) => {
+
+
+  const FixedSelect = props => (
+    <FixRequiredSelect
+      {...props}
+      SelectComponent={Select}
+       />
+  );
   const options = groups.map((group) => {
     return {
       value: `${group.name}`,
-      label: group.name,
+      label: (group.name),
       id: group.id,
     };
   });
@@ -26,7 +35,7 @@ const GroupSelect = ({ groups, control }) => {
       formState,
     }) => (
       <StyledWrapper>
-      <Select  options={options} onChange={onChange}  />
+      <FixedSelect className="selectGroup" group options={options} onChange={onChange}  />
     </StyledWrapper>
     )}
   />

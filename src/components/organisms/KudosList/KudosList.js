@@ -12,6 +12,9 @@ const KudosList = ({ kudoses, control }) => {
       <Controller
         control={control}
         name="selectedKudos"
+        rules={{
+          required: true
+        }}
         render={({
           field: { onChange, onBlur, value, name, ref },
           fieldState: { invalid, isTouched, isDirty, error },

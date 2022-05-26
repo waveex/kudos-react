@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
   background-color: ${({ theme }) => theme.purple};
   color: ${({ theme }) => theme.white};
-  font-size: ${({ theme }) => theme.small};
+  font-size: ${({ theme }) => theme.s};
   font-weight: ${({ theme }) => theme.semibold};
   height: 36px;
   width: 120px;
@@ -11,6 +11,47 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 6px;
   border: none;
+  transition: 0.3s all ease-in-out;
+  ${(props) =>
+    props.options &&
+    css`
+      background: transparent;
+      width: ${({ theme }) => theme.s};
+      height: ${({ theme }) => theme.s};
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      :hover {
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+      }
+    `}
+  ${(props) =>
+    props.more &&
+    css`
+      background: ${({ theme }) => theme.gray};
+      width: ${({ theme }) => theme.s};
+      height: ${({ theme }) => theme.l};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      :hover {
+        filter: invert(2) sepia(5) saturate(2) hue-rotate(15deg);
+      }
+    `}
+    ${(props) =>
+    props.toolTip &&
+    css`
+      background: ${({ theme }) => theme.lightGray};
+      width: 100%;
+      border-radius: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      :hover {
+        background: ${({ theme }) => theme.gold};
+      }
+    `}
 `;
 
 export default Button;

@@ -15,6 +15,7 @@ const Kudos = ({ img, title, description, id, onChange, kudoses }) => {
         onChange={onChange}
         value={id}
         name="slecetKudos"
+
       />
       <StyledWrapper htmlFor={id}>
         <Icon kudos src={`${img}`} />

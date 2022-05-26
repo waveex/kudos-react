@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { EditorState } from "draft-js";
 import Editor from "@draft-js-plugins/editor";
 import mentionsStyles from "./MentionsStyles.module.css";
@@ -6,12 +6,13 @@ import createMentionPlugin, {
   defaultSuggestionsFilter,
 } from "@draft-js-plugins/mention";
 import createHashtagPlugin from "@draft-js-plugins/hashtag";
-import editorStyles from "./RemoteMentionEditor.module.css";
+import editorStyles from "./EditorInput.module.css";
 import createEmojiPlugin from "@draft-js-plugins/emoji";
 import "../../../../node_modules/@draft-js-plugins/emoji/lib/plugin.css";
 import "../../../../node_modules/@draft-js-plugins/hashtag/lib/plugin.css";
 import createCounterPlugin from "@draft-js-plugins/counter";
 import counterStyles from "./CouterStyles.css";
+import PropTypes from 'prop-types';
 import "../../../../node_modules/@draft-js-plugins/counter/lib/plugin.css";
 
 function Entry(props) {
@@ -35,18 +36,19 @@ function Entry(props) {
         />
         <p className={theme?.mentionSuggestionsEntryText}>{mention.name}</p>
         <p className={theme?.mentionSuggestionsEntryText}>{mention.title}</p>
-
       </div>
     </div>
   );
 }
-const RemoteMentionEditor = ({ persons, value, onChange }) => {
+
+const EditorInput = ({ persons, value, onChange }) => {
+  const ref = useRef(null)
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
   const [open, setOpen] = useState(false);
   const [suggestions, setSuggestions] = useState(persons);
-
+  const [readOnly, setReadOnly] = useState(false);
   const { MentionSuggestions, plugins, EmojiSelect, CharCounter } =
     useMemo(() => {
       const mentionPlugin = createMentionPlugin({
@@ -85,6 +87,20 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
   const onSearchChange = useCallback(({ value }) => {
     setSuggestions(defaultSuggestionsFilter(value, persons));
   }, []);
+  const editorContent = editorState
+    .getCurrentContent()
+    .getPlainText("\u0001").length;
+  useEffect(() => {
+    if (editorContent >= 500) {
+      setReadOnly(true);
+    }
+  }, [editorContent]);
+  useEffect(() => {
+    if(ref.current){
+      ref.current.focus()
+    }
+
+  }, [])
 
   return (
     <div
@@ -94,6 +110,8 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
       }}
     >
       <Editor
+        ref={ref}
+        required
         name="editorInput"
         editorKey={"editorInput"}
         editorState={editorState}
@@ -103,6 +121,7 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
         value={value}
         plugins={plugins}
         spellCheck
+        readOnly={readOnly}
         placeholder="Napisz wiadomość 😊"
       />
       <MentionSuggestions
@@ -126,5 +145,8 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
     </div>
   );
 };
+EditorInput.propTypes = {
+   onChange: PropTypes.func.isRequired,
+};
 
-export default RemoteMentionEditor;
+export default EditorInput;

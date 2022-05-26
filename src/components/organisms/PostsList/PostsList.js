@@ -3,7 +3,7 @@ import Post from "../Post/Post";
 import { StyledWrapper } from "./PostsList.styles";
 
 const PostsList = ({ persons, kudoses, postsList }) => {
-
+  console.log(postsList);
   return (
     <StyledWrapper>
       {postsList.map((singlePost) => (
@@ -19,6 +19,7 @@ const PostsList = ({ persons, kudoses, postsList }) => {
           likes={singlePost.likes}
           kudos={singlePost.kudos}
           postDescription={singlePost.postDescription}
+          group={singlePost.groupId}
         />
       ))}
     </StyledWrapper>

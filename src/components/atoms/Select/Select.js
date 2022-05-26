@@ -9,10 +9,18 @@ const Select = styled(ReactSelect)`
   width: 100%;
   width: 183px;
   max-width: 100%;
+
   ${props =>
     props.multi &&
     css`
       width: 100%;
+    `}
+    ${props =>
+    props.group &&
+    css`
+        option {
+          background: red;
+        }
     `}
 `;
 

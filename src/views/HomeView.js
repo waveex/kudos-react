@@ -10,6 +10,7 @@ import PostsList from "../components/organisms/PostsList/PostsList";
 import { useForm } from "react-hook-form";
 import dayjs from "dayjs";
 
+
 export const mapStatetoProps = (state) => ({
   posts: state.postState,
   persons: state.personsState,
@@ -32,7 +33,7 @@ const defaultValues = {
     kudosId: "",
     personId: "",
   },
-  group: "",
+  groupId: "",
 };
 const HomeView = ({ posts, persons, kudoses }) => {
   const {
@@ -44,7 +45,7 @@ const HomeView = ({ posts, persons, kudoses }) => {
     defaultValues: defaultValues,
   });
 
-  let now = dayjs().format("DD/MM/YYYY");
+  let date = dayjs().format();
 
   const [postsList, setPostsList] = useState(posts);
   const [formValues, setFormValues] = useState(defaultValues);
@@ -58,17 +59,21 @@ const HomeView = ({ posts, persons, kudoses }) => {
     const getSelectedPerson = data.selectPeople;
     const getSelectedKudos = data.selectedKudos;
     const selectedPerson = getSelectedPerson.value.id;
+    const getSelectedGroup = selectedData.selectGroup.id
+    console.log(getSelectedGroup);
     let newPost = {
       postId: getRandomIntInclusive(7, 99),
       authorId: activePerson.id,
       avatar: activePerson.img,
-      date: now,
+      date: date,
       postDescription: getEditorData,
       likes: 0,
       kudos: {
         kudosId: Number(selectedData.selectedKudos),
         personId: selectedPerson,
       },
+      groupId: getSelectedGroup
+
     };
 
     setPostsList([newPost, ...postsList]);

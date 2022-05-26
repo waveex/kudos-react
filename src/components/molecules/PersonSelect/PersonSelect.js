@@ -4,9 +4,19 @@ import Select from "../../atoms/Select/Select";
 import { Text } from "../../atoms/Text/Text";
 import { StyledWrapper } from "./PersonSelect.styles";
 import { Controller } from "react-hook-form";
+import FixRequiredSelect from "../../atoms/Select/FixRequiredSelect";
+
+
 
 const PersonSelect = ({ persons, register, control }) => {
+   const FixedSelect = props => (
+    <FixRequiredSelect
+      {...props}
+      SelectComponent={Select}
+       />
+  );
   return (
+
     <StyledWrapper>
       <Text>Wybierz osobę, której przyznajesz kudos</Text>
       <Controller
@@ -17,9 +27,10 @@ const PersonSelect = ({ persons, register, control }) => {
           fieldState: { invalid, isTouched, isDirty, error },
           formState,
         }) => (
-          <Select
+          <FixedSelect
           onChange={onChange}
         name={name}
+        required
         multi
         placeholder="Wybierz osobę lub osoby"
         options={persons.map(({ name, id }) => ({

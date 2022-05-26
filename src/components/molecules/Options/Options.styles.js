@@ -6,6 +6,7 @@ export const StyledWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 24px 0 16px 0;
+  position: relative;
 `;
 
 export const OptionsWrapper = styled.aside`
@@ -13,6 +14,7 @@ export const OptionsWrapper = styled.aside`
   align-items: center;
   margin: 0;
   flex: 1;
+
 `;
 
 export const SocialWrapper = styled.aside`
@@ -20,4 +22,5 @@ export const SocialWrapper = styled.aside`
   flex-direction: row;
   align-items: center;
   margin-right: 17px;
+
 `;
