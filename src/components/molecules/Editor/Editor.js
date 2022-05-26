@@ -28,23 +28,14 @@ function Entry(props) {
   return (
     <div {...parentProps}>
       <div className={theme?.mentionSuggestionsEntryContainer}>
-        <div className={theme?.mentionSuggestionsEntryContainerLeft}>
-          <img
-            src={mention.img}
-            className={theme?.mentionSuggestionsEntryAvatar}
-            role="presentation"
-          />
-        </div>
+        <img
+          src={mention.img}
+          className={theme?.mentionSuggestionsEntryAvatar}
+          role="presentation"
+        />
+        <p className={theme?.mentionSuggestionsEntryText}>{mention.name}</p>
+        <p className={theme?.mentionSuggestionsEntryText}>{mention.title}</p>
 
-        <div className={theme?.mentionSuggestionsEntryContainerRight}>
-          <div className={theme?.mentionSuggestionsEntryText}>
-            {mention.name}
-          </div>
-
-          <div className={theme?.mentionSuggestionsEntryTitle}>
-            {mention.title}
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -94,9 +85,6 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
   const onSearchChange = useCallback(({ value }) => {
     setSuggestions(defaultSuggestionsFilter(value, persons));
   }, []);
-  const readyToSendData = editorState
-    .getCurrentContent()
-    .getPlainText("\u0001");
 
   return (
     <div
@@ -106,12 +94,11 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
       }}
     >
       <Editor
-        name="editor"
-        editorKey={"editor"}
+        name="editorInput"
+        editorKey={"editorInput"}
         editorState={editorState}
         onChange={(e) => {
-          onChangeState(e),
-          onChange(e);
+          onChangeState(e), onChange(e);
         }}
         value={value}
         plugins={plugins}
@@ -128,7 +115,7 @@ const RemoteMentionEditor = ({ persons, value, onChange }) => {
         }}
         entryComponent={Entry}
         popoverContainer={({ children }) => (
-          <div className={editorStyles.popoverContainer}>{children}</div>
+          <div className={mentionsStyles.popoverContainer}>{children}</div>
         )}
       />
       <EmojiSelect />

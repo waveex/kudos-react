@@ -6,18 +6,16 @@ import FormHeader from "../components/molecules/FormHeader/FormHeader";
 import PostForm from "../components/molecules/PostForm/PostForm";
 import PersonSelect from "../components/molecules/PersonSelect/PersonSelect";
 import FormFooter from "../components/molecules/FormFooter/FormFooter";
-import { useForm } from "react-hook-form";
 
-const AddPostForm = ({    onSubmit,  kudoses,  persons,  handleCloseModal,}) => {
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    watch,
-    control,
-  } = useForm();
-
-
+const AddPostForm = ({
+  handleSubmit,
+  control,
+  errors,
+  onSubmit,
+  kudoses,
+  persons,
+  handleCloseModal,
+}) => {
   return (
     <FormWrapper onSubmit={handleSubmit(onSubmit)}>
       <FormHeader handleCloseModal={handleCloseModal} />

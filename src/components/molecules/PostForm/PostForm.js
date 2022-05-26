@@ -13,7 +13,7 @@ const PostForm = ({ persons, control }) => {
       <Text>Treść posta nad kudosem</Text>
       <Controller
         control={control}
-        name="Editor"
+        name="editorInput"
         render={({
           field: { onChange, onBlur, value, name, ref },
           fieldState: { invalid, isTouched, isDirty, error },

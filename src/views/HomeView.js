@@ -8,34 +8,80 @@ import AddPostForm from "./AddPostForm";
 import useModal from "../hooks/useModal";
 import PostsList from "../components/organisms/PostsList/PostsList";
 import { useForm } from "react-hook-form";
+import dayjs from "dayjs";
 
 export const mapStatetoProps = (state) => ({
   posts: state.postState,
   persons: state.personsState,
   kudoses: state.kudosesState,
 });
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+const defaultValues = {
+  postId: "",
+  authorId: "",
+  avatar: "",
+  date: "",
+  postDescription: "",
+  likes: 0,
+  kudos: {
+    kudosId: "",
+    personId: "",
+  },
+  group: "",
+};
 const HomeView = ({ posts, persons, kudoses }) => {
-  console.log(kudoses);
+  const {
+    handleSubmit,
+    formState: { errors },
+    watch,
+    control,
+  } = useForm({
+    defaultValues: defaultValues,
+  });
+
+  let now = dayjs().format("DD/MM/YYYY");
+
   const [postsList, setPostsList] = useState(posts);
-  const onSubmit = (e) => {
-    const newPost = {
-      postId: 10,
-      authorId: 1,
-      avatar: "https://randomuser.me/api/portraits/men/2.jpg",
-      date: "3 dni temu",
-      postDescription: "Wiech projektów przed nami.",
-      likes: 23,
+  const [formValues, setFormValues] = useState(defaultValues);
+
+  const handleCreatePost = (data) => {
+    const getEditorData = data.editorInput
+      .getCurrentContent()
+      .getPlainText("\u0001");
+
+    const selectedData = data;
+    const getSelectedPerson = data.selectPeople;
+    const getSelectedKudos = data.selectedKudos;
+    const selectedPerson = getSelectedPerson.value.id;
+    let newPost = {
+      postId: getRandomIntInclusive(7, 99),
+      authorId: activePerson.id,
+      avatar: activePerson.img,
+      date: now,
+      postDescription: getEditorData,
+      likes: 0,
       kudos: {
-        kudosId: 4,
-        personId: 5,
+        kudosId: Number(selectedData.selectedKudos),
+        personId: selectedPerson,
       },
     };
-    e.preventDefault;
+
     setPostsList([newPost, ...postsList]);
-    handleCloseModal();
   };
 
   const activePerson = persons.find((person) => person.isActive);
+
+  const onSubmit = (data) => {
+    handleCreatePost(data);
+    setFormValues(defaultValues);
+    handleCloseModal();
+  };
+
   const { isOpen, handleOpenModal, handleCloseModal } = useModal();
   return (
     <StyledWrapper>
@@ -55,6 +101,10 @@ const HomeView = ({ posts, persons, kudoses }) => {
           handleCloseModal={handleCloseModal}
           kudoses={kudoses}
           persons={persons}
+          handleSubmit={handleSubmit}
+          errors={errors}
+          watch={watch}
+          control={control}
         />
       </Modal>
       <PostsList postsList={postsList} persons={persons} kudoses={kudoses} />

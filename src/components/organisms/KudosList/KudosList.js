@@ -11,7 +11,7 @@ const KudosList = ({ kudoses, control }) => {
       <Text>Wybierz kudos</Text>
       <Controller
         control={control}
-        name="kudos"
+        name="selectedKudos"
         render={({
           field: { onChange, onBlur, value, name, ref },
           fieldState: { invalid, isTouched, isDirty, error },

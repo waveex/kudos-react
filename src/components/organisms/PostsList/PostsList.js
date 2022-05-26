@@ -3,10 +3,7 @@ import Post from "../Post/Post";
 import { StyledWrapper } from "./PostsList.styles";
 
 const PostsList = ({ persons, kudoses, postsList }) => {
-  useEffect(() => {
-    console.count("Component Rendered ");
-  }, []);
-  console.log(postsList)
+
   return (
     <StyledWrapper>
       {postsList.map((singlePost) => (

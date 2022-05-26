@@ -1,6 +1,7 @@
 .counterStyles-counter {
   color: #333;
   font: normal normal bold 16px/21px Poppins;
-  bottom: 20px;
+  bottom: -30px;
   position: absolute;
+  pointer-events: none;
   }

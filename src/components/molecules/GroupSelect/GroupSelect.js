@@ -19,7 +19,7 @@ const GroupSelect = ({ groups, control }) => {
   return (
     <Controller
     control={control}
-    name="Group"
+    name="selectGroup"
     render={({
       field: { onChange, onBlur, value, name, ref },
       fieldState: { invalid, isTouched, isDirty, error },

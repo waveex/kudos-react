@@ -11,7 +11,7 @@ const PersonSelect = ({ persons, register, control }) => {
       <Text>Wybierz osobę, której przyznajesz kudos</Text>
       <Controller
         control={control}
-        name="select"
+        name="selectPeople"
         render={({
           field: { onChange, onBlur, value, name, ref },
           fieldState: { invalid, isTouched, isDirty, error },
@@ -22,7 +22,6 @@ const PersonSelect = ({ persons, register, control }) => {
         name={name}
         multi
         placeholder="Wybierz osobę lub osoby"
-        isMulti
         options={persons.map(({ name, id }) => ({
           value: { id },
           label: `${name}`,
