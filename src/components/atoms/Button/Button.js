@@ -26,8 +26,10 @@ const Button = styled.button`
       justify-content: center;
       align-items: center;
       :hover {
-        filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+        box-shadow: 0px 0px 7px 0px rgb(168 153 111);
+
       }
+
     `}
   ${(props) =>
     props.more &&
@@ -39,7 +41,7 @@ const Button = styled.button`
       justify-content: center;
       align-items: center;
       :hover {
-        filter: invert(2) sepia(5) saturate(2) hue-rotate(15deg);
+        background-color: ${({ theme }) => theme.white};
       }
     `}
     ${(props) =>
